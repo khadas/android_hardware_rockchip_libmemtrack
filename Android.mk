@@ -19,11 +19,14 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := memtrack.cpp
-
+ifneq ($(filter rk3128h rk3328 rk322x, $(strip $(TARGET_BOARD_PLATFORM))), )
+LOCAL_SRC_FILES += rk322x.cpp
+else
 ifneq ($(filter rk3326, $(strip $(TARGET_BOARD_PLATFORM))), )
 LOCAL_SRC_FILES += rk3326.cpp
 else
 LOCAL_SRC_FILES += rk_common.cpp
+endif
 endif
 
 LOCAL_MODULE_RELATIVE_PATH := hw
