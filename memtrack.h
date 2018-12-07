@@ -18,7 +18,10 @@
 #define _MEMTRACK_ROCKCHIP_H_
 
 
-int mali_memtrack_get_memory(pid_t pid, int type,
+int gl_memtrack_get_memory(pid_t pid, int type,
+                             struct memtrack_record *records,
+                             size_t *num_records);
+int egl_memtrack_get_memory(pid_t pid, int type,
                              struct memtrack_record *records,
                              size_t *num_records);
 

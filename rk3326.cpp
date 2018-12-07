@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "memtrack_mali"
+#define LOG_TAG "rk3326_memtrack"
 #define LOG_NDEBUG 1
 
 #include <errno.h>
@@ -77,7 +77,7 @@ bool find_dir(pid_t pid,char * pid_path)
 }
 
 
-int mali_memtrack_get_memory(pid_t pid,
+int gl_memtrack_get_memory(pid_t pid,
                              int type  __unused,
                              struct memtrack_record *records,
                              size_t *num_records)
@@ -134,4 +134,14 @@ int mali_memtrack_get_memory(pid_t pid,
 
     return 0;
 }
+
+int egl_memtrack_get_memory(pid_t pid __unused,
+                            int type __unused,
+                            struct memtrack_record *records __unused,
+                            size_t *num_records __unused)
+{
+    //TBD
+    return  -EINVAL;
+}
+
 

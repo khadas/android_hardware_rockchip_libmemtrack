@@ -45,16 +45,14 @@ int rk_memtrack_get_memory(const struct memtrack_module *module,
 
     if(!module)
         return -1;
-    if (type == MEMTRACK_TYPE_GL) {
-         return mali_memtrack_get_memory(pid, type, records, num_records);
-        }
+    if (type == MEMTRACK_TYPE_GL)
+    {
+         return gl_memtrack_get_memory(pid, type, records, num_records);
+    }
 
-    else if (type == MEMTRACK_TYPE_GRAPHICS) {
-    /*
-    TBD:we use DRM ,MEMTRACK_TYPE_GRAPHICS memory cannot get from ion.
-    caijq@rock-chips.com
-    */
-        return -EINVAL;//ion_memtrack_get_memory(pid, type, records, num_records);
+    else if (type == MEMTRACK_TYPE_GRAPHICS)
+    {
+        return egl_memtrack_get_memory(pid, type, records, num_records);
     }
 
     return -EINVAL;
