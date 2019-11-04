@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ifneq ($(strip $(TARGET_BOARD_PLATFORM)), rk3368)
 LOCAL_PATH := $(call my-dir)
 
 # HAL module implemenation stored in
@@ -35,3 +36,4 @@ LOCAL_SHARED_LIBRARIES :=  liblog
 LOCAL_MODULE := memtrack.$(TARGET_BOARD_PLATFORM)
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
+endif
