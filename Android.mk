@@ -26,7 +26,7 @@ else
 ifneq ($(filter rk3326, $(strip $(TARGET_BOARD_PLATFORM))), )
 LOCAL_SRC_FILES += rk3326.cpp
 else
-ifneq ($(filter rk3399, $(strip $(TARGET_BOARD_PLATFORM))), )
+ifneq ($(filter rk3399 rk3399pro, $(strip $(TARGET_BOARD_PLATFORM))), )
 LOCAL_SRC_FILES += rk3399.cpp
 else
 LOCAL_SRC_FILES += rk_common.cpp
